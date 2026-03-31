@@ -1,45 +1,251 @@
 <!DOCTYPE html>
-<html lang="zh - CN">
-
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF - 8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Unity 工程师个人网站</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unity 工程师 | 个人主页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: #0b0e16;
+      background-image: radial-gradient(circle at 50% 50%, #141a28, #0b0e16);
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 50px 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 2px solid #4fc3f7;
+    }
+
+    .name {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .job {
+      font-size: 17px;
+      color: #8ab4f8;
+      margin-bottom: 16px;
+    }
+
+    .bio {
+      font-size: 15px;
+      color: #a9b7d0;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      background: rgba(79, 195, 247, 0.1);
+      color: #4fc3f7;
+      border-radius: 99px;
+      font-size: 13px;
+      border: 1px solid rgba(79, 195, 247, 0.2);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link {
+      display: block;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: #e6edf3;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .link:hover {
+      background: rgba(79, 195, 247, 0.1);
+      border-color: #4fc3f7;
+      transform: translateY(-2px);
+    }
+
+    /* 项目卡片样式 */
+    .project-section {
+      margin-top: 10px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .project-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .project-header:hover {
+      background: rgba(79, 195, 247, 0.05);
+    }
+
+    .project-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 20px;
+      color: #a9b7d0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .project-content.active {
+      max-height: 500px;
+      padding-bottom: 20px;
+    }
+
+    .arrow {
+      font-size: 14px;
+      color: #4fc3f7;
+      transition: transform 0.3s;
+    }
+
+    .arrow.open {
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>Unity 工程师个人网站</h1>
-        <p>三年Unity开发经验，寻找新的挑战</p>
-    </header>
-    <section id="about">
-        <h2>关于我</h2>
-        <p>我是一名拥有三年工作经验的Unity工程师，专注于使用Unity引擎开发高质量的游戏和应用程序。在工作中，我积累了丰富的经验，包括但不限于3D建模、动画设计、脚本编程等。</p>
-    </section>
-    <section id="projects">
-        <h2>项目展示</h2>
-        <!-- 这里可以通过JavaScript动态生成项目展示 -->
-        <div class="project">
-            <img src="assets/project1.jpg" alt="项目1">
-            <h3>项目名称1</h3>
-            <p>这是我的第一个Unity项目，主要实现了...功能。</p>
-        </div>
-        <div class="project">
-            <img src="assets/project2.jpg" alt="项目2">
-            <h3>项目名称2</h3>
-            <p>此项目中，我负责...模块的开发。</p>
-        </div>
-    </section>
-    <section id="contact">
-        <h2>联系我</h2>
-        <p>如果您对我的项目感兴趣，或者有合作机会，欢迎通过以下方式联系我：</p>
-        <ul>
-            <li>邮箱：[你的邮箱地址]</li>
-            <li>电话：[你的电话号码]</li>
-        </ul>
-    </section>
-    <script src="script.js"></script>
-</body>
+  <div class="container">
+    <!-- 个人信息 -->
+    <div class="card">
+      <img class="avatar" src="https://picsum.photos/seed/unity/200/200" alt="头像">
+      <h1 class="name">杨璧莎</h1>
+      <p class="job">Unity 开发工程师 | 游戏客户端开发</p>
+      <p class="bio">
+        专注 Unity 引擎开发，擅长独立游戏开发、商业项目优化、UI 框架搭建与性能调优。<br>
+        热爱技术，追求高效、稳定、优雅的代码与交互体验。
+      </p>
 
+      <div class="tags">
+        <span class="tag">Unity3D</span>
+        <span class="tag">C#</span>
+        <span class="tag">Shader</span>
+        <span class="tag">UGUI</span>
+        <span class="tag">Dotween</span>
+        <span class="tag">性能优化</span>
+        <span class="tag">热更新</span>
+        <span class="tag">独立游戏</span>
+      </div>
+
+      <div class="links">
+        <a href="https://github.com/" class="link">GitHub 项目</a>
+        <a href="mailto:your@email.com" class="link">邮箱联系我</a>
+      </div>
+    </div>
+
+    <!-- 可展开项目列表 -->
+    <div class="project-section">
+      <!-- 项目1 -->
+      <div class="project-card">
+        <div class="project-header" onclick="toggle(this)">
+          <span>3D 动作冒险游戏</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="project-content">
+          基于 Unity 开发的第三人称动作游戏，负责角色控制器、战斗系统、动画状态机、UI 框架与性能优化。使用 ProBuilder 搭建关卡，接入 Cinemachine 实现流畅镜头控制。
+        </div>
+      </div>
+
+      <!-- 项目2 -->
+      <div class="project-card">
+        <div class="project-header" onclick="toggle(this)">
+          <span>休闲消除类手游</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="project-content">
+          独立开发完整消除玩法，实现消除判定、步数计算、关卡进度、道具系统与多语言支持。优化 DrawCall，实现流畅 60 帧运行，已完成多机型适配。
+        </div>
+      </div>
+
+      <!-- 项目3 -->
+      <div class="project-card">
+        <div class="project-header" onclick="toggle(this)">
+          <span>Unity 框架工具集</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="project-content">
+          自研轻量级 UI 框架、事件系统、资源管理器与热更新模块。支持一键打包、自动化测试，大幅提升团队开发效率，可直接用于商业项目。
+        </div>
+      </div>
+
+      <!-- 项目4 -->
+      <div class="project-card">
+        <div class="project-header" onclick="toggle(this)">
+          <span>VR 交互演示项目</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="project-content">
+          基于 XR Interaction Toolkit 实现 VR 抓取、投掷、按键交互等功能，优化手柄输入响应逻辑，提升沉浸感与交互流畅度。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggle(el) {
+      const content = el.nextElementSibling;
+      const arrow = el.querySelector('.arrow');
+      content.classList.toggle('active');
+      arrow.classList.toggle('open');
+    }
+  </script>
+</body>
 </html>
